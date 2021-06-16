@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+form {
+    padding: 4rem;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input, button{
+    width: 60%;
+    height: 3rem;
+    text-align: center;
+    font-size: 24px;
+    color: maroon;
+    font-weight: 700;
+}
+h1{
+    text-align: center;
+    font-size: 32px;
+}
+h2{
+    text-align: center;
+    color: red;
+}
+
