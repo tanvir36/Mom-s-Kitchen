@@ -1,0 +1,16 @@
+.pink {
+    color: pink;
+}
+.offers{
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    & button{
+        margin-bottom: 2rem;
+    }
+}
+h4{
+    background-color: rgb(161, 161, 117);
+    font-size: 32px;
+}
