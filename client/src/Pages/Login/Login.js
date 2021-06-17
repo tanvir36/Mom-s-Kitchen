@@ -13,15 +13,19 @@ class Login extends Component{
         // console.log(`${username}   ${password}`);
         axios.defaults.withCredentials= true;
         axios.post("http://localhost:8080/login",{username, password}).then((response)=>{
+            console.log(response);
+            
                 if(response.data.Message){
-                    this.setState({
-                        login: response.data.Message
-                    });
+                    console.log(response.data.Message);
+                //     this.setState({
+                //         login: response.data.Message
+                //     });
                 } else {
-                    this.setState({
-                        login: ("Welcome "+response.data[0].userName)
-                    });
-                }              
+                    localStorage.setItem("token",response.data.token)
+                //     this.setState({
+                //         login: ("Welcome "+ response.data[0].userName)
+                //     });
+                 }              
         })
         event.target.reset();
     }
@@ -35,11 +39,30 @@ class Login extends Component{
         });
         event.target.reset();
     }
+    authHandler= (event)=>{
+        event.preventDefault();
+        axios.get("http://localhost:8080/userAuthenticated",{
+            headers: {
+                "x-access-token" :localStorage.getItem("token"),
+            },
+        }).then((response)=>{
+            console.log(response);
+        })
+           
+
+        
+    }
     componentDidMount () {
         axios.defaults.withCredentials= true;
         axios.get("http://localhost:8080/login").then((response)=>{
             console.log(response);
+            if(response.data.loggedIn){
+                this.setState({
+                    login: "Welcome "+response.data.user[0].userName
+                })       
+            }
         })
+        
     }
 
 
@@ -54,6 +77,7 @@ class Login extends Component{
                     <input type="password" id ="password" placeholder="password"/>
                     <button type="submit">Login</button>
                 </form>
+                {this.state.login ? <button onClick={this.authHandler}>Check Authentication</button>:<div></div>}
                 <h1>Sign Up form</h1>
                 <form onSubmit={this.signupHandler}>
                     <input type="text" id="name" placeholder="username"/>

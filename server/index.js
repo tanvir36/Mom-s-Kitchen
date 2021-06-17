@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt');
 const bodyParse = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const jwt = require('jsonwebtoken');
 const saltRounds =10;
 
 app.use(express.json());
@@ -85,9 +86,15 @@ app.post('/login',(req,res)=>{
             if(result.length>0){
                 bcrypt.compare(password, result[0].password,(error,response)=>{
                     if(response){
+                        
+                        const id= result[0].id;
+                        const token= jwt.sign({id},"tanu",{
+                            expiresIn: 300,
+                        })
                         req.session.user =result;
-                        console.log(req.session.user);
-                        res.send(result);
+
+                        // console.log(req.session.user);
+                        res.json({auth: true, token: token, result: result});
                     } else{
                         res.send({Message: "Wrong Password Entered"});
                     }
@@ -98,7 +105,26 @@ app.post('/login',(req,res)=>{
         }
     )
 })
+const verifyJwt=(req,res,next)=>{
+    const token= req.headers["x-access-token"]
+    if(!token){
+        res.send("Sorry we need Token");
+    }else{
+        jwt.verify(token, "tanu",(err,decoded)=>{
+            if(err){
+                res.json({auth: false, message: "Failed to Authenticate"});
 
+            }else{
+                req.userId = decoded.id;
+                next();
+            }
+        });
+    }
+}
+
+app.get('/userAuthenticated',verifyJwt,(req,res)=>{
+    res.send("You are authenticated !!!");
+})
 
 app.listen(8080, ()=>{
     console.log("server running on 8080");
