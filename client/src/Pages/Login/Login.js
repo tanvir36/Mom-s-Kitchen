@@ -13,21 +13,15 @@ class Login extends Component{
         // console.log(`${username}   ${password}`);
         axios.defaults.withCredentials= true;
         axios.post("http://localhost:8080/login",{username, password}).then((response)=>{
-            console.log(response);
-                // if(response.data.length<1){
-                //         this.setState({
-                //                // login:"Wrong Username or Password" 
-                //             login: response.data.message
-                //         });
-                // } else{
-                //     this.setState({
-                //         // login: (`Welcome ${response.data[0].userName}`)
-                //         login: response.data.message
-                //     })
-                // }
-                this.setState({
-                    login: response.data.message
-                })
+                if(response.data.Message){
+                    this.setState({
+                        login: response.data.Message
+                    });
+                } else {
+                    this.setState({
+                        login: ("Welcome "+response.data[0].userName)
+                    });
+                }              
         })
         event.target.reset();
     }
@@ -36,7 +30,6 @@ class Login extends Component{
         event.preventDefault();
         const username=event.target.name.value;
         const password= event.target.password.value;
-        // console.log(`${username}   ${password}`);
         axios.post("http://localhost:8080/register", {username , password}).then((response)=>{
             console.log(response);
         });
@@ -51,11 +44,10 @@ class Login extends Component{
 
 
     render(){
-    
         return (
             <section>
                 <h1>Login Form </h1>
-             {this.state.login===""?   (<h2>{this.state.login}</h2>):(<h1></h1>)}
+                <h2>{this.state.login}</h2>
                  
                 <form onSubmit={this.loginHandler}>
                     <input type="text" id="name" placeholder="username"/>

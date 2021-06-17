@@ -81,25 +81,4 @@
     @extend .margin;
     height: 80px;
 }
-.second{
-    @extend .first;
-    box-shadow: -30px -40px rgba(255, 127, 80, 0.9);
-    &__text{
-        @extend .first__text;
-    }
-    &__img{
-        @extend .first__img;
-        background-image: url("../../assets/turkish-food.jpg");
-    }
-}
-.third{
-    @extend .first;
-    box-shadow: 30px 40px rgba(110, 59, 59, 0.9);
-    &__text{
-        @extend .first__text;
-    }
-    &__img{
-        @extend .first__img;
-        background-image: url("../../assets/italian-food.jpg.crdownload");
-    }
-}
+
