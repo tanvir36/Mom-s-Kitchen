@@ -7,8 +7,8 @@ function readData(){
     return JSON.parse(kitchens);
 }
 
-function writeData(){
-    fs.writeFileSync('./data/kitchen.json', JSON.stringify());
+function writeData(kitchens){
+    fs.writeFileSync('./data/kitchen.json', JSON.stringify(kitchens));
 }
 router.get("/", (req,res)=>{
     const kitchenData = readData();
@@ -27,8 +27,20 @@ router.get("/", (req,res)=>{
 router.get("/:id", (req,res)=>{
     const kitchens = readData();
     const requiredKitchen = kitchens.find((kitchen)=>(kitchen.id==req.params.id));
-    console.log(requiredKitchen);
-    res.json(requiredKitchen);
-    
-})
+    res.json(requiredKitchen);  
+});
+
+router.post("/:id/:name",(req,res)=>{
+    const kitchens= readData();
+    const requiredKitchen = kitchens.find((kitchen)=>(kitchen.id==req.params.id));
+    const requiredOffer = requiredKitchen.offers.find((offer)=>offer.name===req.params.name);
+    const newSubscriber ={
+        name: req.body.name,
+        address: req.body.address,
+        postal: req.body.postal
+    };
+    requiredOffer.subscribers.push(newSubscriber);
+    writeData(kitchens);
+    res.json(requiredOffer);
+});
 module.exports=router;

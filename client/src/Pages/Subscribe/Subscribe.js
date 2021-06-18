@@ -9,6 +9,7 @@ class Subscribe extends Component {
 
     confirmHandler =(event)=>{
         event.preventDefault();
+        
 
     }
 
