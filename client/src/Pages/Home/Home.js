@@ -9,7 +9,6 @@ class Home extends Component {
     
     componentDidMount () {
         axios.get(`http://localhost:8080/kitchens`).then((response)=>{
-          console.log(response);
           this.setState({
             kitchens: response.data,
           })

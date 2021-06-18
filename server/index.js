@@ -50,14 +50,16 @@ const db= mysql.createConnection({
 app.post('/register',(req,res)=>{
     const username = req.body.username;
     const password = req.body.password;
+    const address = req.body.address;
+    const postal = req.body.postal;
 
     bcrypt.hash(password,saltRounds, (err, hash)=>{
         if(err){
             console.log(err);
         }
         db.query(
-            "INSERT INTO users (userName, password) VALUES (?,?)",
-        [username , hash],
+            "INSERT INTO users (userName, password, address, postal) VALUES (?,?,?,?)",
+        [username , hash, address, postal],
         (err, result)=>{
             console.log(err);
         }
@@ -85,15 +87,12 @@ app.post('/login',(req,res)=>{
             }
             if(result.length>0){
                 bcrypt.compare(password, result[0].password,(error,response)=>{
-                    if(response){
-                        
+                    if(response){  
                         const id= result[0].id;
                         const token= jwt.sign({id},"tanu",{
                             expiresIn: 300,
                         })
                         req.session.user =result;
-
-                        // console.log(req.session.user);
                         res.json({auth: true, token: token, result: result});
                     } else{
                         res.send({Message: "Wrong Password Entered"});
