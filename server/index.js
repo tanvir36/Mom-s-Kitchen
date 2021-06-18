@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors(
     {
         origin: ["http://localhost:3000"],
-        methods: ["GET", "POST"],
+        methods: ["GET", "POST", "PUT"],
         credentials: true
     }
 ));
@@ -124,17 +124,29 @@ app.get('/userAuthenticated',verifyJwt,(req,res)=>{
 })
 
 
-// app.put('/subscribe', (req,res)=>{
-//     const title= req.body.name;
-//     const name= req.body.title;
-//     const price = req.body.price;
-//     db.query (
-//         "INSERT INTO users (subsciption) VALUES (?) ",
-//         [title.concat(name).concat(price)],
-//         (err, res)=>{
-//             console.log(err);
-//         })
-// });
+app.put('/subscribe', (req,res)=>{
+    const title= req.body.title;
+    const name= req.body.name;
+    const price = req.body.price;
+    const username = req.body.username;
+    db.query("SELECT * FROM users WHERE username=?;",
+    [username],(e,r)=>{
+       const subscription= r[0].subscription;
+
+       db.query("UPDATE  users SET subscription = (?)  WHERE userName=?;",
+       [(subscription +"\n"+ title+" "+name+ " "+ price) , username ],
+       (error,result)=>{
+           if(error){
+               console.log(error);
+           }else{
+               
+               res.send(result);
+           }
+       });
+    });
+
+   
+});
 app.listen(8080, ()=>{
     console.log("server running on 8080");
 })

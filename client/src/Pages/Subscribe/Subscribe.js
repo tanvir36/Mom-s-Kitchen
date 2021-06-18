@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import './Subscribe.scss';
 class Subscribe extends Component {
     state ={
         kitchen: null,
         offer: "",
-        logIn: true,
-        status: false
+        logIn: true
+       
     };
 
     confirmHandler =(event)=>{
@@ -26,6 +26,16 @@ class Subscribe extends Component {
                     address: address,
                     postal: postal
                 }).then((res)=>{console.log(res.data);});
+
+                axios.put("http://localhost:8080/subscribe",{
+                    title : this.state.kitchen.title,
+                    name: this.state.offer.name,
+                    price: this.state.offer.price,
+                    username: name,
+                }).then((response)=>{});
+                this.setState({
+                    status: true,
+                });
             }else{
                 this.setState({
                     logIn: false
@@ -33,7 +43,6 @@ class Subscribe extends Component {
             }
         });           
     }
-
     componentDidMount () {
         // axios.defaults.withCredentials= true;
         axios.get(`http://localhost:8080/kitchens/${this.props.match.params.id}`)  
@@ -50,6 +59,7 @@ class Subscribe extends Component {
             return(<main>Ready.........✔️</main>)
         }
         return(
+         
             <section>
                 <h1>{this.state.kitchen.title} by {this.state.kitchen.name}</h1>
                 <h2>{this.state.kitchen.slogan}</h2>
@@ -58,6 +68,7 @@ class Subscribe extends Component {
                 <h1>{this.state.offer.price}</h1>
                 <button onClick={this.confirmHandler}> CONFIRM</button>
                 {!this.state.logIn  && <Link to={`./login`}><button>Log IN </button></Link>}
+                <a href="/">CANCEL</a>
             </section>
             
         )
