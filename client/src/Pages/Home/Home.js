@@ -38,7 +38,7 @@ class Home extends Component {
 
                                 </div>
                                 <div className="first__img">
-                                    <img src={kitchen.image}/>
+                                    <img src={kitchen.image} alt="specificImage"/>
                                 </div>
                             </div>
                             <div className="margin"></div>

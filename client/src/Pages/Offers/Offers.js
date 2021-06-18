@@ -4,26 +4,27 @@ import {Link} from 'react-router-dom';
 import './Offers.scss';
 class  Offers extends Component {
     state ={
-        preferredKitchen:[]
+        offers:[],
+        id:""
     };
 
     componentDidMount () {
         axios.get(`http://localhost:8080/kitchens/${this.props.match.params.id}`).then((response)=>{
             this.setState({
-                preferredKitchen: response.data
+                offers: response.data.offers,
+                id: this.props.match.params.id
             });
         });
     }
     render () {
-        console.log(this.state.preferredKitchen)
         return(
             <section className="offers">
                 <h4> OFFERS</h4>
-                {this.state.preferredKitchen.map((kitchen,i)=>(
+                {this.state.offers.map((offer,i)=>(
                     <div key={i}>  
-                        <h1>{kitchen.description}</h1>
-                        <h2>{kitchen.price}</h2>
-                        <Link to ="/login">
+                        <h1>{offer.description}</h1>
+                        <h2>{offer.price}</h2>
+                        <Link to = {`/${this.state.id}/${offer.name}/login`}>
                             <button type="submit">Subscribe</button>
                         </Link>
                     </div>

@@ -20,6 +20,10 @@ app.use(cors(
     }
 ));
 
+app.use (express.static('public'));
+app.use('/kitchens',kitchens);
+app.use('/kitchens',offers);
+
 app.use(cookieParser());
 app.use(bodyParse.urlencoded({extended: true}));
 app.use(session({
@@ -32,13 +36,6 @@ app.use(session({
     },
 })
 );
-
-
-app.use (express.static('public'));
-app.use('/kitchens',kitchens);
-app.use('/kitchens',offers);
-
-
 
 const db= mysql.createConnection({
     user: 'root',

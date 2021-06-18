@@ -69,7 +69,7 @@ class Login extends Component{
     render(){
         return (
             <section>
-                {this.state.status && <Redirect to= "/"/>}
+                {this.state.status && <Redirect to= "./subscribe"/>}
                 <h1>Login Form </h1>
                 <h2>{this.state.login}</h2>
                  

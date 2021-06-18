@@ -24,4 +24,11 @@ router.get("/", (req,res)=>{
     res.json(requiredData);
 });
 
+router.get("/:id", (req,res)=>{
+    const kitchens = readData();
+    const requiredKitchen = kitchens.find((kitchen)=>(kitchen.id==req.params.id));
+    console.log(requiredKitchen);
+    res.json(requiredKitchen);
+    
+})
 module.exports=router;

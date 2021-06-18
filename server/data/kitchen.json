@@ -8,6 +8,7 @@
         "offers":[
             {
                 "id":1,
+                "name": "bigMeal",
                 "description":"Mon-Fri : Al Pastor, Cabeza, Carnitas, Pollo Asado, Carne Asada (includes Beans, potatoes and Tortillas",
                 "subscribers":[],
                 "price":"$40"
@@ -15,12 +16,14 @@
             },
             {
                 "id":2,
+                "name":"nourishing",
                 "description":"BREAKFAST(Mon-Fri) : Ham & Egg, Chorizo & Egg, Bacon & Egg, Machaca & Egg, Chilaquiles, Huevos Rancheros",
                 "subscribers":[],
                 "price":"$25"
             },
             {
                 "id":3,
+                "name":"snackBites",
                 "description":"SALADS (Mon-Fri): Chicken Taco Salad, Shrimp Salad, Steak Taco Salad, Enchiladas Amigos, Enchiladas Verdes",
                 "subscribers":[],
                 "price":"$30"
@@ -38,18 +41,21 @@
         "offers":[
             {
                 "id":1,
+                "name":"bigMeal",
                 "description":"Pasta: Bolognese, Marinara, Carbonara, Papalina, Pesto (Includes Chicken, steak, olives and veggies",
                 "subscribers":[],
                 "price":"$35"
             },
             {
                 "id":2,
+                "name":"nourishing",
                 "description":"Soups: Minestrone, Smoked Mushroom, Smoked Chicken, Prawn Soup, Beef Soup",
                 "subscribers":[],
                 "price":"$30"
             },
             {
                 "id":3,
+                "name":"snackbites",
                 "description":"Sandwich: Turkey Dagwood, Ham and Salami, Tuna Italian, Genoa Salami, Roast Beef",
                 "subscribers":[],
                 "price":"$30"
@@ -67,18 +73,21 @@
         "offers":[
             {
                 "id": 1,
+                "name":"bigMeal",
                 "description":"Chicken Shawarma, Beef Shawarma, Kafta, Shish Tawaouk, Lamb Chops",
                 "subscribers":[],
                 "price":"$30"
             },
             {
                 "id":2,
+                "name":"nourishing",
                 "description":"Spinach Manakeesh, Cheese Manakeesh, Salmon with Rice, Falafel wrap, Tabliyeh Saj Shawarma",
                 "subscribers":[],
                 "price":"$30"
             },
             {
                 "id":3,
+                "name":"snackbites",
                 "description":" Lentil Soup, Arnabeet, Kebbeh, Rakakat, Yalla Special",
                 "subscribers":[],
                 "price":"$25"
@@ -96,18 +105,21 @@
         "offers":[
             {
                 "id":1,
+                "name": "bigMeal",
                 "description":"Breakfast: (Mon- Fri): Stuffed Indian flatbread with veggies",
                 "subscribers":[],
                 "price":"$30"
             },
             {
                 "id":2,
+                "name":"nourishing",
                 "description":"Lunch: Palak Paneer, Malai Kofta, Chickpeas Stew, Mixed Veggie, Butter Chicken ",
                 "subscribers":[],
                 "price":"$35"
             },
             {
                 "id":3,
+                "name": "snackbites",
                 "description":"Fried Rice, Pav Bhaji, Kabab Wrap, Masala Dosa, Spicy Mushroom",
                 "subscribers":[],
                 "price":"$25"
@@ -125,18 +137,21 @@
         "offers":[
             {
                 "id":1,
+                "name":"bigMeal",
                 "description":"(Mon-Sun): Fruit Mix, Chocolate, Jam, Caramel, Chessecake, Buttermilk, Blueberry",
                 "subscribers":[],
                 "price":"$20"
             },
             {
                 "id":2,
+                "name":"nourishing",
                 "description":"(Mon-Fri): Fruit Mix, Chocolate, Jam, Caramel, Chessecake",
                 "subscribers":[],
                 "price":"$15"
             },
             {
                 "id":3,
+                "name": "snackbites",
                 "description":"(Fri-Sun): Fruit Mix, Chocolate",
                 "subscribers":[],
                 "price":"$10"
@@ -154,18 +169,21 @@
         "offers":[
             {
                 "id":1,
+                "name": "bigMeal",
                 "description":"Large: Mix Fruit Bowl with yogurt and Honey on side",
                 "subscribers":[],
                 "price":"$10"
             },
             {
                 "id":2,
+                "name": "nourishing",
                 "description":"Medium:  Mix Fruit Bowl with yogurt and Honey on side",
                 "subscribers":[],
                 "price":"$8"
             },
             {
                 "id":3,
+                "name": "snackbites",
                 "description":"Small: Mix Fruit Bowl with yogurt and Honey on side",
                 "subscribers":[],
                 "price":"&6"
@@ -173,7 +191,4 @@
 
         ]
     }
-
- 
-
 ]

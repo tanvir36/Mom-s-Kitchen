@@ -1,3 +1,4 @@
+
 const express = require ('express');
 const router = express.Router();
 const fs = require('fs');
@@ -11,11 +12,12 @@ function writeData() {
     fs.writeFileSync('./data/kitchen.json', JSON.stringify());
 }
 
-router.get("/:id", (req,res)=>{
-    const kitchens = readData();
-    console.log(req.params.id);
-    const requiredKitchen = kitchens.find((kitchen)=>(kitchen.id==req.params.id));
-    res.send(requiredKitchen.offers);
-})
+// router.get("/:id", (req,res)=>{
+//     const kitchens = readData();
+//     const requiredKitchen = kitchens.find((kitchen)=>(kitchen.id==req.params.id));
+//     res.json(requiredKitchen);
+// })
+
+
 
 module.exports=router;
