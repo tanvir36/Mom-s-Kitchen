@@ -26,6 +26,7 @@ app.use('/kitchens',offers);
 
 app.use(cookieParser());
 app.use(bodyParse.urlencoded({extended: true}));
+
 app.use(session({
     key: "userId",
     secret: "tanu",
@@ -122,6 +123,18 @@ app.get('/userAuthenticated',verifyJwt,(req,res)=>{
     res.send("You are authenticated !!!");
 })
 
+
+// app.put('/subscribe', (req,res)=>{
+//     const title= req.body.name;
+//     const name= req.body.title;
+//     const price = req.body.price;
+//     db.query (
+//         "INSERT INTO users (subsciption) VALUES (?) ",
+//         [title.concat(name).concat(price)],
+//         (err, res)=>{
+//             console.log(err);
+//         })
+// });
 app.listen(8080, ()=>{
     console.log("server running on 8080");
 })

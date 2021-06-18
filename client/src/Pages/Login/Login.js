@@ -37,8 +37,8 @@ class Login extends Component{
         const password= event.target.password.value;
         const address = event.target.address.value;
         const postal = event.target.postal.value;
-        axios.post("http://localhost:8080/register", {username , password , address, postal}).then((response)=>{
-            //console.log(response);
+        axios.post("http://localhost:8080/register", {username , password , address, postal})
+        .then((response)=>{
         });
         event.target.reset();
     }

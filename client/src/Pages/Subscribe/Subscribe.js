@@ -1,16 +1,37 @@
 import axios from 'axios';
 import { Component } from 'react';
+import {Link} from 'react-router-dom';
 import './Subscribe.scss';
 class Subscribe extends Component {
     state ={
         kitchen: null,
-        offer: ""
+        offer: "",
+        logIn: true,
+        status: false
     };
 
     confirmHandler =(event)=>{
         event.preventDefault();
-        
-
+        axios.defaults.withCredentials= true;
+        axios.get("http://localhost:8080/login").then((response)=>{
+            console.log(response);
+            if(response.data.loggedIn){
+                const name = response.data.user[0].userName;
+                const address= response.data.user[0].address;
+                const postal =response.data.user[0].postal;
+                
+                axios.post(`http://localhost:8080/kitchens/${this.state.kitchen.id}/${this.state.offer.name}`,
+                {
+                    name: name, 
+                    address: address,
+                    postal: postal
+                }).then((res)=>{console.log(res.data);});
+            }else{
+                this.setState({
+                    logIn: false
+                });
+            }
+        });           
     }
 
     componentDidMount () {
@@ -36,6 +57,7 @@ class Subscribe extends Component {
                 <h3>{this.state.offer.description}</h3>
                 <h1>{this.state.offer.price}</h1>
                 <button onClick={this.confirmHandler}> CONFIRM</button>
+                {!this.state.logIn  && <Link to={`./login`}><button>Log IN </button></Link>}
             </section>
             
         )

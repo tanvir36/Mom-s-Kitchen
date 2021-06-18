@@ -39,6 +39,12 @@ router.post("/:id/:name",(req,res)=>{
         address: req.body.address,
         postal: req.body.postal
     };
+   
+        if( requiredOffer.subscribers.find(subscriber=>subscriber.name===newSubscriber.name) && requiredOffer.subscribers.find(subscriber=>subscriber.address===newSubscriber.address)){
+            res.json("User already Subscribed");
+        }
+    
+    
     requiredOffer.subscribers.push(newSubscriber);
     writeData(kitchens);
     res.json(requiredOffer);
