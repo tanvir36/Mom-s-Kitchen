@@ -22,7 +22,7 @@ class Home extends Component {
                     <div><h2>Mom's</h2><h2>Kitchen</h2></div>
                     <div className="hanging"></div>
                     <div>
-                        <Link to="">
+                        <Link to="/SubscriptionInfo">
                             <h2>logIn</h2>
                         </Link>
                     </div>
