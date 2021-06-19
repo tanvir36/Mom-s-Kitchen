@@ -6,7 +6,6 @@ class SubscriptionInfo extends Component{
     render(){
         return (
             <section>
-                <h1>Hellllloooo</h1>
                 <Login/>
                 <button>SHOW</button>
             </section>
