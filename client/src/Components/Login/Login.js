@@ -7,6 +7,10 @@ import localLove from '../../assets/localLove.jpg';
 class Login extends Component{
     state ={
         login: "",
+        username: "",
+        address: "",
+        postal: "",
+        subscription: "",
         status: false,
         signup: false,
         error: false
@@ -28,7 +32,11 @@ class Login extends Component{
                 } else {
                     localStorage.setItem("token",response.data.token)
                         this.setState({
-                            status: true
+                            status: true,
+                            username: response.data.result[0].userName,
+                            address:  response.data.result[0].address,
+                            postal: response.data.result[0].postal,
+                            subscription: response.data.result[0].subscription|| "You don't have any"
                         });
                         console.log(response);
                  }              
@@ -93,33 +101,41 @@ class Login extends Component{
                 {/* {this.state.status && <Redirect to= "./subscribe"/>} */}
                 <div className="container_one">
                         <div className="login">         
-                            <form className="login__form" onSubmit={this.loginHandler}>
+                            <form className={`${this.state.status? "no-show":"login__form"}`} onSubmit={this.loginHandler}>
                                 <img className="login__form--img" src={pin}/>
-                                <h1>Login</h1>  
+                                <h1 className="login__heading">Login</h1>  
                                 <input className="login__form--input" type="text" id="name" placeholder="username"/>
                                 <input className="login__form--input" type="password" id ="password" placeholder="password"/>
                                 <button className="login__form--button" type="submit">Login</button>
                                 <h2 className="login__form--error">{this.state.login}</h2>
                                 <button className="login__form--signup" type="submit" onClick={this.clickHandler}>Sign Up</button>
                             </form>
+                            <div className={`${this.state.status? "logged":"no-show"}`}>
+                                <h1 className="logged__heading">Hi</h1>
+                                <h1 className="logged__heading">{this.state.username}</h1>
+                                <h2>{this.state.address}</h2>
+                                <h2>{this.state.postal}</h2>
+                                <h1>SUBSCRIPTIONS</h1>
+                                <h2>{this.state.subscription}</h2>
+                            </div>
+                           
                         </div>                        
                 </div>
                 <div className="container_two">
-                    <div className={`${this.state.signup ? "signup" : "no-signup"}`}>  
+                    <div className={`${this.state.signup ? "signup" : "no-show"}`}>  
                         <form  className="signup__form" onSubmit={this.signupHandler}>
                             <img className="login__form--img" src={pin}/>
-                            <h1>Sign Up</h1>
+                            <h1 className="signup__heading">Sign Up</h1>
                             <input className="signup__form--input" type="text" id="name" placeholder="username"/>
                             <input className="signup__form--input"  type="password" id ="password" placeholder="password"/>
                             <input className="signup__form--input" type="text" id ="address" placeholder="address"/>   
                             <input className="signup__form--input" type="text" id="postal" placeholder="Postal code"/>    
                             <button className="signup__form--button" type="submit">Sign Up</button>
                             {this.state.error?   (<h2 className="login__form--error">ALL FIELDS MANDATORY</h2>):<h2></h2>}
-           
                         </form>
                     </div>
                     <div className="back">
-                        <img src={localLove} alt="localLove"/>
+                        {/* <img src={localLove} alt="localLove"/> */}
                     </div>
                 </div>
                  
