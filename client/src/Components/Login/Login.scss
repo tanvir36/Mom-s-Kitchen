@@ -79,11 +79,14 @@
             text-align: center;
             font-weight: 700;
             font-size: 24px;
-            box-shadow: inset 0px -5px 10px 0px rgba(102, 86, 86, 0.63);
+            box-shadow: 0px 0px 25px rgba(7, 6, 6, 0.705);
             background-color: rgb(176, 196, 209);
             border: none;
             &:focus{
                 outline: none;
+            }
+            &:active{
+                box-shadow: none;
             }
         }
         &--signup{

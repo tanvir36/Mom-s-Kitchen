@@ -26,6 +26,7 @@ class Login extends Component{
             
                 if(response.data.Message){
                     // console.log(response.data.Message);
+                    localStorage.clear();
                         this.setState({
                         login: response.data.Message
                      });

@@ -120,7 +120,7 @@ const verifyJwt=(req,res,next)=>{
 }
 
 app.get('/userAuthenticated',verifyJwt,(req,res)=>{
-    res.send("You are authenticated !!!");
+    res.send({message:"You are authenticated !!!", user: req.session.user});
 })
 
 
@@ -134,7 +134,7 @@ app.put('/subscribe', (req,res)=>{
        const subscription= r[0].subscription;
 
        db.query("UPDATE  users SET subscription = (?)  WHERE userName=?;",
-       [(subscription +"\n"+ title+" "+name+ " "+ price) , username ],
+       [(subscription +"\n\n"+ title+" \n"+name+ " \n"+ price) , username ],
        (error,result)=>{
            if(error){
                console.log(error);
