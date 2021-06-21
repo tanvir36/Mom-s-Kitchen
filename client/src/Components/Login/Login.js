@@ -1,6 +1,7 @@
 import './Login.scss';
 import axios from 'axios';
 import {Component} from 'react';
+
 import {Redirect} from 'react-router-dom';
 import pin from '../../assets/pin-new.png';
 import localLove from '../../assets/localLove.jpg';
@@ -98,7 +99,7 @@ class Login extends Component{
     render(){
         return (
             <section className="main">
-                <div className="check"></div>
+                
                 {/* {this.state.status && <Redirect to= "./subscribe"/>} */}
                 <div className="container_one">
                         <div className="login">         

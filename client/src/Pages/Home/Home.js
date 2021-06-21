@@ -2,6 +2,7 @@ import './Home.scss';
 import {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import Navbar from '../../Components/Navbar/Navbar';
 class Home extends Component {
     state ={
         kitchens:[]  
@@ -18,15 +19,7 @@ class Home extends Component {
     render(){
         return (
             <section className="container">
-                <nav className="navbar">
-                    <div><h2>Mom's</h2><h2>Kitchen</h2></div>
-                    <div className="hanging"></div>
-                    <div>
-                        <Link to="/SubscriptionInfo">
-                            <h2>logIn</h2>
-                        </Link>
-                    </div>
-                </nav>
+                <Navbar/>
                 <div className="menu">
                     <h1 className="menu__heading">MENU</h1>
                 </div>

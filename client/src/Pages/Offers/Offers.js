@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Component } from 'react';
 import {Link} from 'react-router-dom';
+import Navbar from '../../Components/Navbar/Navbar';
 import './Offers.scss';
 import avocado from '../../assets/avocado-new.png';
 import tomato from '../../assets/tomato.jpg';
@@ -40,7 +41,7 @@ class  Offers extends Component {
         
         return(
             <section>
-               <div className="check"></div>
+               <Navbar/>
                <div className="holder">
                     {this.state.offers.map((offer,i)=>(
                         <div key={i} className="offers">

@@ -3,6 +3,7 @@ import { Component } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import SubscriptionInfo from '../SubscriptionInfo/SubscriptionInfo';
 import './Subscribe.scss';
+import Navbar from '../../Components/Navbar/Navbar';
 class Subscribe extends Component {
     state ={
         kitchen: null,
@@ -78,7 +79,7 @@ class Subscribe extends Component {
                
                 <div className="subscribe"> 
                     <div className="subscribe__container">
-                        <div className="check"></div>
+                        <Navbar/>
                         {this.state.logged && <h1 className="user">{`Helloo ${this.state.username}`}</h1> }
                         
                         <div className="subscribe__heading">

@@ -7,6 +7,8 @@ import Subscribe from './Pages/Subscribe/Subscribe';
 import SubscriptionInfo from './Pages/SubscriptionInfo/SubscriptionInfo';
 import Login from './Components/Login/Login';
 import postSubscribe from './Pages/postSubscribe/postSubscribe';
+import Navbar from './Components/Navbar/Navbar';
+import JustLogin from './Pages/JustLogin/JustLogin';
 
 
 
@@ -21,7 +23,9 @@ function App () {
              <Route path="/:id/:name/login" component={Login}/>
              <Route path="/:id/:name/subscribe" component={Subscribe}/>
              <Route path="/:id/:name/log" component={postSubscribe}/>
+             <Route path="/login" component={JustLogin}/>
              <Route path="/:id" component ={Offers}/>
+            
 
           </Switch>
         </div>
