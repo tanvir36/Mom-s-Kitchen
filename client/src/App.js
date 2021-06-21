@@ -6,6 +6,7 @@ import Offers from './Pages/Offers/Offers';
 import Subscribe from './Pages/Subscribe/Subscribe';
 import SubscriptionInfo from './Pages/SubscriptionInfo/SubscriptionInfo';
 import Login from './Components/Login/Login';
+import postSubscribe from './Pages/postSubscribe/postSubscribe';
 
 
 
@@ -19,7 +20,9 @@ function App () {
              <Route path="/SubscriptionInfo" component={SubscriptionInfo}/>             
              <Route path="/:id/:name/login" component={Login}/>
              <Route path="/:id/:name/subscribe" component={Subscribe}/>
+             <Route path="/:id/:name/log" component={postSubscribe}/>
              <Route path="/:id" component ={Offers}/>
+
           </Switch>
         </div>
       </Router>

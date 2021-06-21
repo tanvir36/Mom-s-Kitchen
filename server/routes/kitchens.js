@@ -41,7 +41,7 @@ router.post("/:id/:name",(req,res)=>{
     };
    
         if( requiredOffer.subscribers.find(subscriber=>subscriber.name===newSubscriber.name) && requiredOffer.subscribers.find(subscriber=>subscriber.address===newSubscriber.address)){
-            res.json("User already Subscribed");
+            res.json({status: false, message: "User already Subscribed"});
         }
     
     

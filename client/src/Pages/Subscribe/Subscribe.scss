@@ -6,10 +6,19 @@
     height: 100vh;
     // animation: wallpaper 5s ease infinite;
 }
+.user{
+    text-align: center;
+    margin: 0rem;
+    padding-top: 2rem;
+    color:rgb(47, 45,66);
+    font-size: 36px;
+    text-shadow: 5px 5px 15px black;
+    text-decoration: underline;
+}
 .subscribe{
     margin: 0 auto;
     width: 80%;
-    padding-top: 8rem;
+    padding-top: 9rem;
     
         &__container{
             border-radius: 15px;
@@ -22,7 +31,7 @@
    &__heading{
         text-align: center;
         font-size: 36px;
-        margin-top: 5rem;
+        margin-top: 4rem;
        &--text{
         margin: 0rem; 
         text-shadow: 10px 5px 10px rgba(78, 76, 76, 0.479);
@@ -57,10 +66,12 @@
               color: cornsilk;
               font-weight: 700;
               font-size: 26px;
+              width: 90%;
           }
        }
    }
 }
+
 @keyframes wallpaper {
     0%{background-position: top ;}
     50%{background-position: center;}

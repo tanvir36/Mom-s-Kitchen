@@ -50,14 +50,15 @@ app.post('/register',(req,res)=>{
     const password = req.body.password;
     const address = req.body.address;
     const postal = req.body.postal;
+    const subscription= ".";
 
     bcrypt.hash(password,saltRounds, (err, hash)=>{
         if(err){
             console.log(err);
         }
         db.query(
-            "INSERT INTO users (userName, password, address, postal) VALUES (?,?,?,?)",
-        [username , hash, address, postal],
+            "INSERT INTO users (userName, password, subscription, address, postal) VALUES (?,?,?,?,?)",
+        [username , hash, subscription, address, postal],
         (err, result)=>{
             console.log(err);
         }
@@ -120,7 +121,7 @@ const verifyJwt=(req,res,next)=>{
 }
 
 app.get('/userAuthenticated',verifyJwt,(req,res)=>{
-    res.send({message:"You are authenticated !!!", user: req.session.user});
+    res.send({auth: true ,message:"You are authenticated !!!", user: req.session.user});
 })
 
 
@@ -134,7 +135,7 @@ app.put('/subscribe', (req,res)=>{
        const subscription= r[0].subscription;
 
        db.query("UPDATE  users SET subscription = (?)  WHERE userName=?;",
-       [(subscription +"\n\n"+ title+" \n"+name+ " \n"+ price) , username ],
+       [(subscription +"\n"+ title+" \n"+ name + "\n"+ price) , username ],
        (error,result)=>{
            if(error){
                console.log(error);
