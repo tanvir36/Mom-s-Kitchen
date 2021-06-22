@@ -1,40 +1,48 @@
 .background{
-    background-image: linear-gradient(rgba(224, 220, 203, 0.438), rgba(240, 255, 240, 0.472)) ,url("../../assets/abstract-img.jpg");
+    
+    // background-image: linear-gradient(rgba(224, 220, 203, 0.438), rgba(240, 255, 240, 0.472)) ,url("../../assets/abstract-img.jpg");
+    //background-image:linear-gradient(rgba(177, 163, 163, 0.301), rgba(82, 75, 75, 0.438)) , url("../../assets/last-try.jpg");
+    background-image: url("../../assets/last-try.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100vh;
-    // animation: wallpaper 5s ease infinite;
+  
+    height: 100%;
+    animation: wallpaper 30s ease infinite;
 }
+
 .user{
     text-align: center;
     margin: 0rem;
     padding-top: 2rem;
-    color:rgb(47, 45,66);
+    color:white;
     font-size: 36px;
-    text-shadow: 5px 5px 15px black;
+    text-shadow: 5px 5px 15px rgb(230, 221, 221);
     text-decoration: underline;
 }
 .subscribe{
     margin: 0 auto;
-    width: 80%;
-    padding-top: 5rem;
+    width: 85%;
+    padding: 10rem ;
+    padding-bottom: 35rem;
     
         &__container{
             border-radius: 15px;
-             box-shadow: 10px 10px rgba(146, 139, 136, 0.233), -10px -10px rgba(146, 139, 136, 0.233);
             font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             background-color: rgba(47, 45, 66, 0.685);
             background-color: rgba(238, 75, 16, 0.205);
+            background-color: rgba(68, 59, 59, 0.712);
             color: rgba(47, 45, 66, 0.685);  
+            color: white;
         }
    &__heading{
         text-align: center;
-        font-size: 36px;
+        font-size: 28px;
         margin-top: 4rem;
+        padding: 0rem 1rem;
        &--text{
         margin: 0rem; 
-        text-shadow: 10px 5px 10px rgba(78, 76, 76, 0.479);
+        text-shadow: 15px 5px 20px rgba(211, 199, 199, 0.678);
        }
    }
    &__offer{
@@ -44,7 +52,7 @@
        padding: 5rem 1rem;
        .italic{
            font-style: italic;
-           font-size: 28px;
+           font-size: 28px;    
        }
        &--text
        {
@@ -67,13 +75,24 @@
               font-weight: 700;
               font-size: 26px;
               width: 90%;
-          }
+            }
+       }
+       &--bag{
+           width: 60%;
+           height: 200px;
+           & img{
+               height: 100%;
+               width: 100%;
+           }
+           
        }
    }
 }
 
 @keyframes wallpaper {
-    0%{background-position: top ;}
-    50%{background-position: center;}
-    100%{background-position: bottom;}
+    0%{background-position: center;}
+    25%{background-position: 10%;}
+    50%{background-position: 80% ;}
+    75%{background-position: 10%;}
+    // 100%{background-position: center;}
 }

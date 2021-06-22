@@ -28,6 +28,7 @@ class  Offers extends Component {
     //     });
     // }
     componentDidMount () {
+        axios.defaults.withCredentials=true;
         axios.get(`http://localhost:8080/kitchens/${this.props.match.params.id}`).then((response)=>{
             this.setState({
                 offers: response.data.offers,

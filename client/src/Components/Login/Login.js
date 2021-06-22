@@ -1,7 +1,7 @@
 import './Login.scss';
 import axios from 'axios';
 import {Component} from 'react';
-
+import homemade from '../../assets/chef.png';
 import {Redirect} from 'react-router-dom';
 import pin from '../../assets/pin-new.png';
 import localLove from '../../assets/localLove.jpg';
@@ -89,6 +89,10 @@ class Login extends Component{
     //     })
         
     // }
+    backHandler=(event)=>{
+        event.preventDefault();
+        window.history.back();
+    }
 
     clickHandler =(event)=>{
         event.preventDefault();
@@ -119,6 +123,7 @@ class Login extends Component{
                                 <h2>{this.state.postal}</h2>
                                 <h1>SUBSCRIPTIONS</h1>
                                 <h2>{this.state.subscription}</h2>
+                                <button onClick={this.backHandler}>BACK</button>
                             </div>
                            
                         </div>                        
@@ -137,7 +142,7 @@ class Login extends Component{
                         </form>
                     </div>
                     <div className="back">
-                        {/* <img src={localLove} alt="localLove"/> */}
+                        <img src={homemade} alt="localLove"/>
                     </div>
                 </div>
                  

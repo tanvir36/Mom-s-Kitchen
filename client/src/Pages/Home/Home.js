@@ -20,6 +20,7 @@ class Home extends Component {
         return (
             <section className="container">
                 <Navbar/>
+                <div className="hanging"></div>
                 <div className="menu">
                     <h1 className="menu__heading">MENU</h1>
                 </div>
@@ -27,17 +28,22 @@ class Home extends Component {
 
                 {this.state.kitchens.map((kitchen,i) =>
                     <div key={i}> 
+                        {/* <div className="margin"></div> */}
                         <Link to = {`/${kitchen.id}`}>
                             <div className="first">
                                 <div className="first__text">
-
+                                    <h2 className="first__text--heading">{kitchen.title}</h2>
+                                    <h2 className="first__text--subheading">{kitchen.slogan}</h2>
+                                    <h3 className="first__text--subheading">By</h3>
+                                    <h3 className="first__text--subheading">{kitchen.name}</h3>
                                 </div>
                                 <div className="first__img">
                                     <img src={kitchen.image} alt="specificImage"/>
                                 </div>
                             </div>
-                            <div className="margin"></div>
+            
                         </Link>
+                        <div className="margin"></div>
                     </div>
                 )}       
             </section>  

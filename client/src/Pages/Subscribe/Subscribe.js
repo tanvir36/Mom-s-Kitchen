@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Component } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import SubscriptionInfo from '../SubscriptionInfo/SubscriptionInfo';
+import bag from '../../assets/bag.png'
 import './Subscribe.scss';
 import Navbar from '../../Components/Navbar/Navbar';
 class Subscribe extends Component {
@@ -12,7 +13,9 @@ class Subscribe extends Component {
         address: "",
         postal: "",
         logIn: true,
-        logged: false
+        logged: false,
+        final: false,
+        error: ""
        
     };
 
@@ -36,7 +39,11 @@ class Subscribe extends Component {
                             name: this.state.offer.name,
                             price: this.state.offer.price,
                             username: this.state.username,
-                        }).then((response)=>{});
+                        }).then((response)=>{
+                            this.setState({
+                                final: true
+                            })
+                        });
                     }
             })
             .catch((error)=>{
@@ -89,11 +96,12 @@ class Subscribe extends Component {
                         </div>
 
                         <div className="subscribe__offer">
-                            <div className="subscribe__offer--text">
+                           {!this.state.final && <div className="subscribe__offer--text">
                                 <h1>{this.state.offer.name}</h1>
                                 <h1 className="italic">{this.state.offer.description}</h1>
-                                <h1>{`Price: ${this.state.offer.price}`}</h1>
-                            </div>
+                                <h1>{`Price: ${this.state.offer.price}`}</h1>                              
+                            </div>}
+                            {this.state.final && <div className="subscribe__offer--bag"><img  src={bag}/></div>}
                             <div className="subscribe__offer--buttons">
                                 {!this.state.logged && 
                                     <Link to={`./log`}>
@@ -102,6 +110,7 @@ class Subscribe extends Component {
                                 {this.state.logged && <button  onClick={this.confirmHandler} type="submit">CONFIRM</button> }                                                    
                             </div>
                         </div>
+                        {this.state.error!=="" && <div className="user">{this.state.error}</div>}
                     </div>                  
                 </div>
             </section>            
