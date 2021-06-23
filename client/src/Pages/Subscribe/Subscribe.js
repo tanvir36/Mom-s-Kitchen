@@ -50,7 +50,8 @@ class Subscribe extends Component {
                
             })                       
     }
-    componentDidMount () {         
+    componentDidMount () {  
+        // axios.defaults.withCredentials= true;       
          axios.get("http://localhost:8080/userAuthenticated",{
              headers: {
                  "x-access-token" :localStorage.getItem("token"),
@@ -85,21 +86,22 @@ class Subscribe extends Component {
             <section className="background">
                
                 <div className="subscribe"> 
-                    <div className="subscribe__container">
-                        <Navbar/>
+                    
+                    <div className="subscribe__container"> 
+                    <Navbar/>                      
                         {this.state.logged && <h1 className="user">{`Helloo ${this.state.username}`}</h1> }
                         
                         <div className="subscribe__heading">
-                            <h1 className="subscribe__heading--text">{this.state.kitchen.title}</h1>
-                            <h2 className="subscribe__heading--text">{this.state.kitchen.slogan}</h2>
-                            <h2 className="subscribe__heading--text">{`By ${this.state.kitchen.name}`}</h2>
+                            <h1 className="subscribe__heading--main">{this.state.kitchen.title}</h1>
+                            <h2 className="subscribe__heading--sub">{this.state.kitchen.slogan}</h2>
+                            <h2 className="subscribe__heading--sub">{`By ${this.state.kitchen.name}`}</h2>
                         </div>
 
                         <div className="subscribe__offer">
                            {!this.state.final && <div className="subscribe__offer--text">
-                                <h1>{this.state.offer.name}</h1>
-                                <h1 className="italic">{this.state.offer.description}</h1>
-                                <h1>{`Price: ${this.state.offer.price}`}</h1>                              
+                                <h1 className="subscribe__heading--main">{this.state.offer.name}</h1>
+                                <h2 className="subscribe__heading--sub" >{this.state.offer.description}</h2>
+                                <h2 className="subscribe__heading--sub">{`Price: ${this.state.offer.price}`}</h2>                              
                             </div>}
                             {this.state.final && <div className="subscribe__offer--bag"><img  src={bag}/></div>}
                             <div className="subscribe__offer--buttons">

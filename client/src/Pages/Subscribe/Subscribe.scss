@@ -1,14 +1,16 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/fonts' as *;
 .background{
-    
-    // background-image: linear-gradient(rgba(224, 220, 203, 0.438), rgba(240, 255, 240, 0.472)) ,url("../../assets/abstract-img.jpg");
-    //background-image:linear-gradient(rgba(177, 163, 163, 0.301), rgba(82, 75, 75, 0.438)) , url("../../assets/last-try.jpg");
     background-image: url("../../assets/last-try.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-  
-    height: 100%;
-    animation: wallpaper 30s ease infinite;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    animation: wallpaper 10s ease infinite ;
+
 }
 
 .user{
@@ -23,58 +25,60 @@
 .subscribe{
     margin: 0 auto;
     width: 85%;
-    padding: 10rem ;
-    padding-bottom: 35rem;
-    
-        &__container{
-            border-radius: 15px;
-            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            background-color: rgba(47, 45, 66, 0.685);
-            background-color: rgba(238, 75, 16, 0.205);
-            background-color: rgba(68, 59, 59, 0.712);
-            color: rgba(47, 45, 66, 0.685);  
-            color: white;
+    @include desktop{
+        width: 60%;
+    }
+        &__container{          
+           
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+            background-color: rgba(68, 59, 59, 0.507);
+            color: cornsilk;
         }
    &__heading{
         text-align: center;
-        font-size: 28px;
-        margin-top: 4rem;
         padding: 0rem 1rem;
-       &--text{
+        margin-top: 2rem;
+       &--main{
         margin: 0rem; 
-        text-shadow: 15px 5px 20px rgba(211, 199, 199, 0.678);
+        text-shadow: 25px 20px 12px rgb(10, 0, 0);
+        font-size: 48px;
+        @include desktop{
+            font-size: 4rem;
+        }
+       }
+       &--sub{
+        font-size: 28px;
+        @include desktop{
+            font-size: 2rem;
+        }
        }
    }
    &__offer{
-       display: flex;
-       align-items: baseline;
-       justify-content: space-between;
-       padding: 5rem 1rem;
-       .italic{
-           font-style: italic;
-           font-size: 28px;    
-       }
-       &--text
-       {
-        margin-left: 1rem; 
-        & h1{
-            margin: 1rem;
-            font-size: 36px;
-        }
-       }
-       &--buttons{
-           width: 40%;
+    padding: 4rem 1rem;
+       @include tablet{
            display: flex;
-           flex-direction: column;
+           align-items: baseline;
+           justify-content: space-between;
+           padding: 4rem 2rem;
+       }
+     
+        
+       &--buttons{
+           width: 80%;
+           margin: 0 auto; 
+           @include desktop{
+            width: 40%;
+        }      
           & button{
               margin: 1rem;
-              height: 3.5rem;
+              height: 4rem;
               border-radius: 20px;
               background-color: rgb(47, 45,66);
               color: cornsilk;
               font-weight: 700;
               font-size: 26px;
               width: 90%;
+              border: none;
             }
        }
        &--bag{
@@ -90,9 +94,9 @@
 }
 
 @keyframes wallpaper {
-    0%{background-position: center;}
-    25%{background-position: 10%;}
+    0%{background-position: 0%;}
+    25%{background-position: 40%;}
     50%{background-position: 80% ;}
-    75%{background-position: 10%;}
-    // 100%{background-position: center;}
+    75%{background-position: 100%;}
 }
+

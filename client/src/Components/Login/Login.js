@@ -107,10 +107,10 @@ class Login extends Component{
                 {/* {this.state.status && <Redirect to= "./subscribe"/>} */}
                 <div className="container_one">
                         <div className="login">         
-                            <form className={`${this.state.status? "no-show":"login__form"}`} onSubmit={this.loginHandler}>
+                            <form autoComplete="off" className={`${this.state.status? "no-show":"login__form"}`} onSubmit={this.loginHandler}>
                                 <img className="login__form--img" src={pin}/>
                                 <h1 className="login__heading">Login</h1>  
-                                <input className="login__form--input" type="text" id="name" placeholder="username"/>
+                                <input  className="login__form--input" type="text" id="name" placeholder="username"/>
                                 <input className="login__form--input" type="password" id ="password" placeholder="password"/>
                                 <button className="login__form--button" type="submit">Login</button>
                                 <h2 className="login__form--error">{this.state.login}</h2>
@@ -130,10 +130,10 @@ class Login extends Component{
                 </div>
                 <div className="container_two">
                     <div className={`${this.state.signup ? "signup" : "no-show"}`}>  
-                        <form  className="signup__form" onSubmit={this.signupHandler}>
+                        <form autoComplete="off"  className="signup__form" onSubmit={this.signupHandler}>
                             <img className="login__form--img" src={pin}/>
                             <h1 className="signup__heading">Sign Up</h1>
-                            <input className="signup__form--input" type="text" id="name" placeholder="username"/>
+                            <input  className="signup__form--input" type="text" id="name" placeholder="username"/>
                             <input className="signup__form--input"  type="password" id ="password" placeholder="password"/>
                             <input className="signup__form--input" type="text" id ="address" placeholder="address"/>   
                             <input className="signup__form--input" type="text" id="postal" placeholder="Postal code"/>    

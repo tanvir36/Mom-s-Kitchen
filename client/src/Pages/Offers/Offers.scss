@@ -1,48 +1,39 @@
 @use '../../partials/mixins' as *;
 @use '../../partials/variables' as *;
+@use '../../partials/fonts' as *;
 .holder{
-
-background-color: rgb(39, 14, 39); 
-background-color: gray;
-
 background-image: linear-gradient(rgba(20, 14, 14, 0.63),rgba(19, 14, 14, 0.616)), url("../../assets/food-back-new.jpg");
 background-repeat: no-repeat;
 background-position: 5%;
 background-size: cover;
 padding: 2rem;
-@include desktop{
-    display: flex;
-    align-items:center;
-    justify-content: space-evenly;
+    @include desktop{
+        display: flex;
+        align-items:center;
+        justify-content: space-evenly;
+        padding: 4rem;   
+    }
 }
-
-}
-
 .offers{
     width:80%;
     margin:  0 auto;
     padding: 2rem 0rem;
-    // background-color: rgb(39, 14, 39); 
-    
-   
+    @include tablet{
+        width: 70%;
+    }
+
     &__card{
         margin: 3rem;
         margin-bottom: 2rem;
-        
         background-image: linear-gradient(to bottom right, rgba(209, 68, 49, 0.335), rgba(255, 80, 80, 0.664), rgba(255, 127, 80, 0.849), rgba(255, 127, 80, 0.527));
         border-radius: 20px 60% 20px 20px;
-       box-shadow: rgba(71, 39, 60, 0.486) -5px 5px, rgba(97, 77, 89, 0.582) -10px 10px, rgba(66, 24, 51, 0.308) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
-       
+        box-shadow: rgba(71, 39, 60, 0.486) -5px 5px, rgba(97, 77, 89, 0.582) -10px 10px, rgba(66, 24, 51, 0.308) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;  
         color:  white;
-       background-color: black;
-        font-weight: 700;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: black;
         position: relative;
         background-position: top;
       
-        &--img{
-                // background-color: rgba(231, 163, 138, 0.295);
-                // box-shadow: 0px 30px  5px rgba(241, 172, 160, 0.342) ;
+        &--img{              
                 padding: 4rem;
                 border-radius: 40%;
                 width: fit-content;
@@ -52,24 +43,25 @@ padding: 2rem;
                 position: absolute;
                 border-radius: 50%;
                 top: -1.3rem;
-                left: 1rem;  
-                 
+                left: 1rem;    
             }
         }
         &--heading{
             padding: 0rem 2rem;
             padding-bottom: 0rem;
-            width: 50%;
             margin: 0rem;
-            font-size: 32px;   
+            font-size: 2.5rem;   
+            font-family: "oxygen-bold";
         }
         &--text{
             font-size: 28px;
             width: 90%;
+            font-family: "oxygen-demi";
             padding: 1rem 2rem;           
         }
         &--price{
-            font-size: 32px;
+            font-size: 28px;
+            font-family: "oxygen-bold";
             padding: 0rem 2rem;
             padding-bottom: 1rem;
             animation: blinking 5s infinite;
@@ -78,15 +70,15 @@ padding: 2rem;
         }
     }
     &__subscribe{
-        width: 80%;
-        height: 3.5rem;
-        margin-left: 3rem;
-        border-radius: 20px;
-       color: black;
-       font-weight: 800;
-       font-size: 19px;
-       background-image: linear-gradient(to bottom right, rgba(209, 68, 49, 0.335), rgba(255, 80, 80, 0.664), rgba(255, 127, 80, 0.849), rgba(255, 127, 80, 0.527));
-       border: none;
+            width: 80%;
+            height: 3.5rem;
+            margin-left: 3rem;
+            border-radius: 20px;
+            color: rgb(47,45,36);
+            font-size: 2rem;
+            font-family: "oxygen-bold";
+            background-image: linear-gradient(to bottom right, rgba(209, 68, 49, 0.335), rgba(255, 80, 80, 0.664), rgba(255, 127, 80, 0.849), rgba(255, 127, 80, 0.527));
+            border: none;
        &:focus{
            outline: none;
        }
