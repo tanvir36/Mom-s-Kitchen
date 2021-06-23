@@ -28,9 +28,8 @@ class Home extends Component {
 
                 {this.state.kitchens.map((kitchen,i) =>
                     <div key={i}> 
-                        {/* <div className="margin"></div> */}
                         <Link to = {`/${kitchen.id}`}>
-                            <div className="first">
+                            <div className="first ">
                                 <div className="first__text">
                                     <h2 className="first__text--heading">{kitchen.title}</h2>
                                     <h2 className="first__text--subheading">{kitchen.slogan}</h2>

@@ -1,29 +1,40 @@
+@use '../../partials/mixins' as *;
+@use '../../partials/variables' as *;
 .holder{
-//    background-color: rgb(47,45,66);  
-// //    background-color: rgb(60, 48, 65);
-   background-color: rgb(39, 14, 39); 
-//    background-color: rgba(249, 250, 167, 0.294);
-// background-image:  url("../../assets/table.jpg.crdownload");
-background-repeat: no-repeat;
-background-position: end;
-background-size: cover;
 
+background-color: rgb(39, 14, 39); 
+background-color: gray;
+
+background-image: linear-gradient(rgba(20, 14, 14, 0.63),rgba(19, 14, 14, 0.616)), url("../../assets/food-back-new.jpg");
+background-repeat: no-repeat;
+background-position: 5%;
+background-size: cover;
+padding: 2rem;
+@include desktop{
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+}
 
 }
 
 .offers{
     width:80%;
-    margin: 0 auto;
+    margin:  0 auto;
     padding: 2rem 0rem;
-    // background-color: rgba(128, 128, 128, 0.267);
+    // background-color: rgb(39, 14, 39); 
+    
+   
     &__card{
         margin: 3rem;
         margin-bottom: 2rem;
-        background-image: linear-gradient(to bottom right, rgba(209, 68, 49, 0.144), rgba(255, 80, 80, 0.582), rgba(255, 127, 80, 0.849), rgba(255, 127, 80, 0.527));
+        
+        background-image: linear-gradient(to bottom right, rgba(209, 68, 49, 0.335), rgba(255, 80, 80, 0.664), rgba(255, 127, 80, 0.849), rgba(255, 127, 80, 0.527));
         border-radius: 20px 60% 20px 20px;
-       box-shadow: rgba(71, 39, 60, 0.4) -5px 5px, rgba(97, 77, 89, 0.479) -10px 10px, rgba(66, 24, 51, 0.308) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
-        color: #FFFDFA;
+       box-shadow: rgba(71, 39, 60, 0.486) -5px 5px, rgba(97, 77, 89, 0.582) -10px 10px, rgba(66, 24, 51, 0.308) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
        
+        color:  white;
+       background-color: black;
         font-weight: 700;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         position: relative;
@@ -74,7 +85,7 @@ background-size: cover;
        color: black;
        font-weight: 800;
        font-size: 19px;
-       background-image: linear-gradient(to bottom right, rgba(209, 68, 49, 0.144), rgba(255, 80, 80, 0.582), rgba(255, 127, 80, 0.849), rgba(255, 127, 80, 0.527));
+       background-image: linear-gradient(to bottom right, rgba(209, 68, 49, 0.335), rgba(255, 80, 80, 0.664), rgba(255, 127, 80, 0.849), rgba(255, 127, 80, 0.527));
        border: none;
        &:focus{
            outline: none;
@@ -99,7 +110,8 @@ background-size: cover;
     100%{background-image: linear-gradient(to bottom right rgba(255, 80, 80, 0.664), rgba(255, 127, 80, 0.849), rgba(209, 68, 49, 0.335),rgba(255, 127, 80, 0.527));}
 }
 .num1{
-    background-image: linear-gradient(to bottom right, rgba(209, 49, 196, 0.212), rgba(114, 74, 96, 0.664), rgba(96, 94, 126, 0.26), rgba(184, 120, 157, 0.527));
+    
+   background-image: linear-gradient(to bottom right, rgba(209, 49, 196, 0.212), rgba(114, 74, 96, 0.664), rgba(96, 94, 126, 0.26), rgba(184, 120, 157, 0.527));
 }
 .num2{
     background-image: linear-gradient(to bottom right, rgba(197, 142, 135, 0.596), rgba(228, 226, 100, 0.664), rgba(228, 201, 47, 0.274), rgba(235, 144, 159, 0.527));

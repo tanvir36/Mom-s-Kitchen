@@ -123,7 +123,7 @@ class Login extends Component{
                                 <h2>{this.state.postal}</h2>
                                 <h1>SUBSCRIPTIONS</h1>
                                 <h2>{this.state.subscription}</h2>
-                                <button onClick={this.backHandler}>BACK</button>
+                                <button className="logged__button" onClick={this.backHandler}>BACK</button>
                             </div>
                            
                         </div>                        
@@ -141,9 +141,11 @@ class Login extends Component{
                             {this.state.error?   (<h2 className="login__form--error">ALL FIELDS MANDATORY</h2>):<h2></h2>}
                         </form>
                     </div>
+                    {!this.state.signup &&
                     <div className="back">
                         <img src={homemade} alt="localLove"/>
-                    </div>
+                        <h1 class="back__text">HOMEMADE</h1>
+                    </div>}
                 </div>
                  
             </section>

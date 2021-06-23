@@ -1,3 +1,5 @@
+@use '../../partials/mixins' as *;
+@use '../../partials/variables'as *;
 *{
     box-sizing: border-box;
 
@@ -25,12 +27,14 @@
     text-align: center;
     padding: 1rem;
     background-color: rgb(47, 45, 66);
+    @include desktop{
+        width: 40%;
+    }
     &__heading{
         color: white;
         letter-spacing: 1.5rem;
         font-size: 48px;
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
     }
 }
 
@@ -45,6 +49,10 @@
     display: flex;
     align-items: center;
     z-index: 9;
+    @include desktop{
+        height: 350px;
+        width: 60%; 
+    }
     &__text{
         width: 70%;
         height: 100%;
@@ -52,6 +60,9 @@
         border-radius: 10px; 
         text-align: center;
         padding: 1.5rem;
+        @include desktop{
+            padding: 2.5rem;
+        }
        
         &--heading{
            color: rgb(189, 62, 16);
@@ -59,6 +70,9 @@
            margin: 0.5rem;
            text-shadow: 20px 10px 20px gray;
            font-family: Arial, Helvetica, sans-serif;
+           @include desktop{
+               font-size: 48px;
+           }
         }
         &--subheading{
             color: rgba(189, 62, 16, 0.76);
@@ -85,9 +99,8 @@
     width: 60%;
     height: 150px;
     background-color: rgb(47, 45, 66);
-}
-.margin2{
-    @extend .margin;
-    height: 80px;
+    @include desktop{
+        width: 40%;
+    }
 }
 
