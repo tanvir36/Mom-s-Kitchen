@@ -9,6 +9,8 @@ import Login from './Components/Login/Login';
 import postSubscribe from './Pages/postSubscribe/postSubscribe';
 import Navbar from './Components/Navbar/Navbar';
 import JustLogin from './Pages/JustLogin/JustLogin';
+import Comments from './Components/Comments/Comments';
+
 
 
 

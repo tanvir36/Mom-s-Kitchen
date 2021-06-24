@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { Component } from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import SubscriptionInfo from '../SubscriptionInfo/SubscriptionInfo';
 import bag from '../../assets/bag.png'
 import './Subscribe.scss';
 import Navbar from '../../Components/Navbar/Navbar';
@@ -31,7 +30,7 @@ class Subscribe extends Component {
                 console.log(res.data);
                     if('status' in res.data){
                         this.setState({
-                            error: "You Subscribed Already!!"
+                            error: "You Ordered Already!!"
                         });
                     }else{
                         axios.put("http://localhost:8080/subscribe",{
@@ -89,8 +88,7 @@ class Subscribe extends Component {
                     
                     <div className="subscribe__container"> 
                     <Navbar/>                      
-                        {this.state.logged && <h1 className="user">{`Helloo ${this.state.username}`}</h1> }
-                        
+                        {this.state.logged && <h1 className="user">{`Helloo ${this.state.username}`}</h1> }                       
                         <div className="subscribe__heading">
                             <h1 className="subscribe__heading--main">{this.state.kitchen.title}</h1>
                             <h2 className="subscribe__heading--sub">{this.state.kitchen.slogan}</h2>
@@ -108,11 +106,15 @@ class Subscribe extends Component {
                                 {!this.state.logged && 
                                     <Link to={`./log`}>
                                         <button  type="submit">LOGIN</button>
+                                       
                                     </Link>} 
-                                {this.state.logged && <button  onClick={this.confirmHandler} type="submit">CONFIRM</button> }                                                    
+                                {this.state.logged && <button  onClick={this.confirmHandler} type="submit">CONFIRM</button> } 
+                                {this.state.final && <button>DONE ✔️</button>}
+                                                                                 
                             </div>
                         </div>
                         {this.state.error!=="" && <div className="user">{this.state.error}</div>}
+                        
                     </div>                  
                 </div>
             </section>            
@@ -121,12 +123,3 @@ class Subscribe extends Component {
 }
 export default Subscribe;
 
-{/* <div className="check"></div>
-                <h1>{this.state.kitchen.title} by {this.state.kitchen.name}</h1>
-                <h2>{this.state.kitchen.slogan}</h2>
-                <h3>{this.state.offer.name}</h3>
-                <h3>{this.state.offer.description}</h3>
-                <h1>{this.state.offer.price}</h1>
-                <button onClick={this.confirmHandler}> CONFIRM</button>
-                {!this.state.logIn  && <Link to={`./login`}><button>Log IN </button></Link>}
-                <a href="/">CANCEL</a> */}

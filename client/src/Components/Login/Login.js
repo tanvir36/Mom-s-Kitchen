@@ -52,7 +52,7 @@ class Login extends Component{
         const password= event.target.password.value;
         const address = event.target.address.value;
         const postal = event.target.postal.value;
-        if(username || password || address || postal){
+        if(username && password && address && postal){
             axios.post("http://localhost:8080/register", {username , password , address, postal})
             .then((response)=>{
             });
@@ -67,29 +67,8 @@ class Login extends Component{
        
         event.target.reset();
     }
-    // authHandler= (event)=>{
-    //     event.preventDefault();
-    //     axios.get("http://localhost:8080/userAuthenticated",{
-    //         headers: {
-    //             "x-access-token" :localStorage.getItem("token"),
-    //         },
-    //     }).then((response)=>{
-    //         console.log(response);
-    //     })   
-    // }
-    // componentDidMount () {
-    //     axios.defaults.withCredentials= true;
-    //     axios.get("http://localhost:8080/login").then((response)=>{
-    //         console.log(response);
-    //         if(response.data.loggedIn){
-    //             this.setState({
-    //                 login: "Welcome "+response.data.user[0].userName
-    //             })       
-    //         }
-    //     })
-        
-    // }
-    backHandler=(event)=>{
+
+  backHandler=(event)=>{
         event.preventDefault();
         window.history.back();
     }
@@ -102,9 +81,7 @@ class Login extends Component{
     }
     render(){
         return (
-            <section className="main">
-                
-                {/* {this.state.status && <Redirect to= "./subscribe"/>} */}
+            <section className="main">                            
                 <div className="container_one">
                         <div className="login">         
                             <form autoComplete="off" className={`${this.state.status? "no-show":"login__form"}`} onSubmit={this.loginHandler}>
@@ -124,8 +101,7 @@ class Login extends Component{
                                 <h1>SUBSCRIPTIONS</h1>
                                 <h2>{this.state.subscription}</h2>
                                 <button className="logged__button" onClick={this.backHandler}>BACK</button>
-                            </div>
-                           
+                            </div>                         
                         </div>                        
                 </div>
                 <div className="container_two">
@@ -146,11 +122,9 @@ class Login extends Component{
                         <img src={homemade} alt="localLove"/>
                         <h1 class="back__text">HOMEMADE</h1>
                     </div>}
-                </div>
-                 
+                </div>                
             </section>
-        )
-        
+        )        
     }
 }
 export default Login;

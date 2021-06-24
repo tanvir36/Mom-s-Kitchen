@@ -1,5 +1,4 @@
 @use '../../partials/mixins' as *;
-@use '../../partials/variables' as *;
 @use '../../partials/fonts' as *;
 *{
     box-sizing: border-box;
@@ -122,20 +121,15 @@
     }   
 }
 .logged{
-
     background-color: cornsilk;
     box-shadow: rgba(63, 25, 25, 0.555) 0px 60px 40px -7px;
-    padding: 2rem 0rem;
+    padding: 1rem 0rem;
     border-radius: 15px;   
-    width: 80%;
-    height: fit-content;
+    width: 100%;
     margin: 0 auto;
     color: rgb(170, 67, 30);
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    font-family: "oxygen-bold";
     &__heading{
         text-shadow: 20px 10px 15px rgba(190, 134, 134, 0.664);
         font-size: 32px;
@@ -168,7 +162,6 @@
 }
 .no-show{
     display: none;
-
 }
 .back{
     width: 100%;
@@ -180,13 +173,13 @@
         height: 100%;
         align-self: center;
         border-radius: 10px;
-        // box-shadow: rgba(60, 64, 67, 0.274) 0px 1px 2px 0px, rgba(60, 64, 67, 0.527) 0px 2px 6px 2px;
         @include  tablet{
             border-radius: 10px 50px 0px 10px;
             
         }       
     }
     &__text{
+        font-family: "oxygen-bold";
         color: white;
         text-align: center;
         font-size: 36px;

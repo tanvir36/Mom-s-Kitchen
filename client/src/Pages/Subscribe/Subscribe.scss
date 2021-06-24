@@ -1,4 +1,4 @@
-@use '../../partials/variables' as *;
+
 @use '../../partials/mixins' as *;
 @use '../../partials/fonts' as *;
 .background{
@@ -28,10 +28,10 @@
     @include desktop{
         width: 60%;
     }
-        &__container{          
-           
-            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+        &__container{                     
+            font-family: "oxygen-bold";
             background-color: rgba(68, 59, 59, 0.507);
+            box-shadow: rgba(7, 7, 7, 0.35) 0px 5px 15px;
             color: cornsilk;
         }
    &__heading{
@@ -60,9 +60,7 @@
            align-items: baseline;
            justify-content: space-between;
            padding: 4rem 2rem;
-       }
-     
-        
+       } 
        &--buttons{
            width: 80%;
            margin: 0 auto; 
@@ -84,6 +82,14 @@
        &--bag{
            width: 60%;
            height: 200px;
+           @include tablet{
+               width: 30%;
+               height: 250px;
+           }
+           @include desktop{
+               width: 20%;
+               height: 300px;
+           }
            & img{
                height: 100%;
                width: 100%;

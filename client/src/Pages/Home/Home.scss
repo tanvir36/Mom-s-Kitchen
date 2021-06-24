@@ -1,14 +1,11 @@
 @use '../../partials/mixins' as *;
-@use '../../partials/variables'as *;
 @use '../../partials/fonts' as *;
 *{
     box-sizing: border-box;
 
-}
- 
+} 
 :link{
-    text-decoration: none;
-    
+    text-decoration: none;    
 }
 .container{
     margin: 0 auto;
