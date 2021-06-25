@@ -47,7 +47,7 @@ class  Offers extends Component {
                                 <p className="offers__card--price">{`Price: ${offer.price}`}</p> 
                                 {this.state.comments &&                               
                                 <div className="comments__component">
-                                 <Comments/>
+                                 <Comments comments={offer.comments}/>
                                 </div>}
                                
                             </div>
