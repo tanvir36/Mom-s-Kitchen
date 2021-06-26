@@ -4,7 +4,7 @@ import {Component} from 'react';
 import homemade from '../../assets/chef.png';
 import {Redirect} from 'react-router-dom';
 import pin from '../../assets/pin-new.png';
-import localLove from '../../assets/localLove.jpg';
+
 class Login extends Component{
     state ={
         login: "",
